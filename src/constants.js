@@ -1,6 +1,6 @@
 // URL's
 export const URL_POKEMON = "https://pokeapi.co/api/v2/pokemon";
-export const URL_POKEMON_ESPECIES = "https://pokeapi.co/api/v2/pokemon-species"; // Tendrá un parámetro de ruta
+export const URL_POKEMON_ESPECIES = "https://pokeapi.co/api/v2/pokemon-species"; // Tendrá un parámetro de ruta -> Acá me quedé
 export const URL_TYPES_POKEMON = "https://pokeapi.co/api/v2/type";
 
 // CONST TYPES POKEMON
