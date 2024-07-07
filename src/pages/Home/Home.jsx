@@ -13,9 +13,7 @@ export const Home = () => {
                 <input id="searchPokemon" name="searchPokemon" type="text" />
             </form>
 
-            <div>
-                <button>Retroceder</button> | <button>Avanzar</button>
-            </div>
+            
 
             <PokemonList />
         </>

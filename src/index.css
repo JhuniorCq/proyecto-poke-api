@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
 }
 
 body {
@@ -66,7 +68,7 @@ a {
 }
 
 .rockColor {
-    background-color: rgb(232, 232, 232);
+    background-color: rgb(212, 199, 184);
 }
 
 .darkColor {

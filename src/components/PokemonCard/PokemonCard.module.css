@@ -3,21 +3,22 @@
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, .4);
     width: 20%;
-    min-width: 220px;
-    height: 300px;
+    min-width: 225px;
+    height: 310px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 20px;
+    transition: scale .2s ease-in-out;
 }
 
-.pokemonCard > * {
-    border: 1px solid red;
+.pokemonCard:hover {
+    scale: 1.1;
 }
 
 .boxImagePokemon {
-    width: 140px;
+    width: 150px;
 }
 
 .imagePokemon {
@@ -27,20 +28,21 @@
 
 .boxNamePokemon {
     display: flex;
-    gap: 20px;
+    gap: 15px;
     align-items: center;
     justify-content: center;
 }
 
 .boxNamePokemon p {
     color: black;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .boxNamePokemon h2 {
     text-transform: capitalize;
     font-weight: normal;
     color: black;
+    font-size: 1.3rem;
 }
 
 .boxTypesPokemon {
