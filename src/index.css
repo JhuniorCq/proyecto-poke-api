@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+}
+
+.colorTypeSteel {
+    background-color: rgb(105, 122, 135);
+}
+
+.colorTypeWater {
+    background-color: rgb(34, 132, 202);
+}
+
+.colorTypeBug {
+    background-color: rgb(71, 151, 22);
+}
+
+.colorTypeDragon {
+    background-color: rgb(39, 64, 138);
+}
+
+.colorTypeElectric {
+    background-color: rgb(226, 216, 14);
+}
+
+.colorTypeGhost {
+    background-color: rgb(72, 35, 107);
+}
+
+.colorTypeFire {
+    background-color: rgb(215, 20, 20);
+}
+
+.colorTypeFairy {
+    background-color: rgb(252, 137, 236);
+}
+
+.colorTypeIce {
+    background-color: rgb(0, 157, 255);
+}
+
+.colorTypeFighting {
+    background-color: rgb(236, 148, 8);
+}
+
+.colorTypeNormal {
+    background-color: #7b7b7b;
+}
+
+.colorTypeGrass {
+    background-color: rgb(0, 154, 0);
+}
+
+.colorTypePsychic {
+    background-color: rgb(196, 26, 134);
+}
+
+.colorTypeRock {
+    background-color: rgb(232, 232, 232);
+}
+
+.colorTypeDark {
+    background-color: rgb(25, 22, 22);
+}
+
+.colorTypeGround {
+    background-color: rgb(169, 68, 24);
+}
+
+.colorTypePoison {
+    background-color: rgb(100, 53, 144);
+}
+
+.colorTypeFlying {
+    background-color: rgb(149, 197, 222);
+}
