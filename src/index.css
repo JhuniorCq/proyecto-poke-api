@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
 }
 
 body {
@@ -13,74 +15,74 @@ a {
     text-decoration: none;
 }
 
-.colorTypeSteel {
+.steelColor {
     background-color: rgb(105, 122, 135);
 }
 
-.colorTypeWater {
+.waterColor {
     background-color: rgb(34, 132, 202);
 }
 
-.colorTypeBug {
+.bugColor {
     background-color: rgb(71, 151, 22);
 }
 
-.colorTypeDragon {
+.dragonColor {
     background-color: rgb(39, 64, 138);
 }
 
-.colorTypeElectric {
+.electricColor {
     background-color: rgb(226, 216, 14);
 }
 
-.colorTypeGhost {
+.ghostColor {
     background-color: rgb(72, 35, 107);
 }
 
-.colorTypeFire {
+.fireColor {
     background-color: rgb(215, 20, 20);
 }
 
-.colorTypeFairy {
+.fairyColor {
     background-color: rgb(252, 137, 236);
 }
 
-.colorTypeIce {
+.iceColor {
     background-color: rgb(0, 157, 255);
 }
 
-.colorTypeFighting {
+.fightingColor {
     background-color: rgb(236, 148, 8);
 }
 
-.colorTypeNormal {
+.normalColor {
     background-color: #7b7b7b;
 }
 
-.colorTypeGrass {
+.grassColor {
     background-color: rgb(0, 154, 0);
 }
 
-.colorTypePsychic {
+.psychicColor {
     background-color: rgb(196, 26, 134);
 }
 
-.colorTypeRock {
-    background-color: rgb(232, 232, 232);
+.rockColor {
+    background-color: rgb(212, 199, 184);
 }
 
-.colorTypeDark {
+.darkColor {
     background-color: rgb(25, 22, 22);
 }
 
-.colorTypeGround {
+.groundColor {
     background-color: rgb(169, 68, 24);
 }
 
-.colorTypePoison {
+.poisonColor {
     background-color: rgb(100, 53, 144);
 }
 
-.colorTypeFlying {
+.flyingColor {
     background-color: rgb(149, 197, 222);
 }

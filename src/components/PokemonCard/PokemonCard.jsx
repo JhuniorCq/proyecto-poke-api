@@ -1,22 +1,23 @@
 import { Link } from "react-router-dom";
 import { URL_POKEMON } from "../../constants";
 import { useGet } from "../hooks/useGet";
-import { addZeros, assignColorType } from "./js";
+import { addZeros } from "./js";
 import styles from "./PokemonCard.module.css";
 
-export const PokemonCard = ({ id }) => {
+export const PokemonCard = ({ namePokemon }) => {
     
-    const { responseGet: pokemonData, loadingGet, errorGet } = useGet(`${URL_POKEMON}/${id}`);
+    const { responseGet: pokemonData, loadingGet, errorGet } = useGet(`${URL_POKEMON}/${namePokemon}`);
 
-    // console.log(pokemonData);
+    // responseGet salía como [] porque es su valor inicial hasta que la petición get a la PokeAPI me retorne otro valor (cuando retorna otro valor es cuando automáticametne deja de ser [] y ya es un ARRAY LLENO)
+    // Creo que con el pokemonData.length === 0 me ahorro el hecho de estar usando el Operador "?" cuando use las propieades de un Objeto
+    if(!pokemonData || pokemonData.length === 0 ) return console.log("pokemonData es un falsy o es un Array vacío");
     
-    const namePokemon = pokemonData.name;
     const imagePokemon = pokemonData?.sprites?.other["official-artwork"]?.front_default;
     const typesPokemon = pokemonData.types;
-    const numberPokemon = addZeros(id.toString());
+    const idPokemon = pokemonData?.id;
+    const numberPokemon = addZeros(idPokemon.toString());
 
     return (
-        // <div>Pokemon</div>
         <Link className={styles.pokemonCard}>
             {
                 loadingGet ? <div>Cargando ...</div>: (
@@ -31,7 +32,7 @@ export const PokemonCard = ({ id }) => {
                         <div className={styles.boxTypesPokemon}>
                             {
                                 typesPokemon && typesPokemon.map((typePokemon, index) => (
-                                    <div key={index} className={`${styles.typePokemon} ${assignColorType(typePokemon.type.name)}`}>
+                                    <div key={index} className={`${styles.typePokemon} ${typePokemon.type.name}Color`}>
                                         {typePokemon.type.name}
                                     </div>
                                 ))
