@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 25px;
     background-color: pink;
-    padding: 0 20px;
+    padding: 50px 30px;
 }

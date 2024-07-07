@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { URL_POKEMON } from "../../constants";
 import { useGet } from "../hooks/useGet";
-import { addZeros, assignColorType } from "./js";
+import { addZeros } from "./js";
 import styles from "./PokemonCard.module.css";
 
 export const PokemonCard = ({ id }) => {
@@ -31,7 +31,7 @@ export const PokemonCard = ({ id }) => {
                         <div className={styles.boxTypesPokemon}>
                             {
                                 typesPokemon && typesPokemon.map((typePokemon, index) => (
-                                    <div key={index} className={`${styles.typePokemon} ${assignColorType(typePokemon.type.name)}`}>
+                                    <div key={index} className={`${styles.typePokemon} ${typePokemon.type.name}Color`}>
                                         {typePokemon.type.name}
                                     </div>
                                 ))
