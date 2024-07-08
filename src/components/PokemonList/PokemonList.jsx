@@ -1,35 +1,45 @@
 import { PokemonCard } from "../PokemonCard/PokemonCard";
 import styles from "./PokemonList.module.css"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AMOUNT_POKEMON_SHOW, URL_POKEMON } from "../../constants";
 import { useGet } from "../hooks/useGet";
 
-export const PokemonList = () => {
-
-    // const AMOUNT_POKEMON_SHOW = 20;
-
-    // Ya lo seeee, en cada click se le sumará MÁS 20 a la prop "index + 1"
-    const [quantityIncrease, setQuantityIncrease] = useState(0);
+export const PokemonList = ({ totalPokemonList }) => {
+    
+    const [minimumRange, setMinimunRange] = useState(0);
 
     const showNextSheet = () => {
-        setQuantityIncrease(quantityIncrease + AMOUNT_POKEMON_SHOW);
+        setMinimunRange(minimumRange + AMOUNT_POKEMON_SHOW);
     };
 
     const showPreviousSheet = () => {
-        if(quantityIncrease >= AMOUNT_POKEMON_SHOW) setQuantityIncrease(quantityIncrease - AMOUNT_POKEMON_SHOW);
+        if(minimumRange >= AMOUNT_POKEMON_SHOW) setMinimunRange(minimumRange - AMOUNT_POKEMON_SHOW);
     }
 
-    // Creo que incluso acá NO es necesario llamar a la API, porque solo la uso para ITERAR el MAP X veces
-    const { responseGet, loadingGet, errorGet } = useGet(`${URL_POKEMON}?limit=${AMOUNT_POKEMON_SHOW}&offset=${quantityIncrease}`);
-    const pokemonData = responseGet.results;
+    // const { responseGet, loadingGet, errorGet } = useGet(`${URL_POKEMON}?limit=${AMOUNT_POKEMON_SHOW}&offset=${minimumRange}`);
+    // const pokemonData = responseGet.results;
 
-    // const pokemonList = Array(AMOUNT_POKEMON_SHOW).fill(null);
+    // Para el buscador sería usar URL_POKEMON con el limit en 1025 y offset en 0, para que así me dé a todos los pokemon y ya ahí recién podré FILTRAR a los pokemon
+
+    // console.log(totalPokemonList, "totalPokemonList")
+    const [pokemonData, setPokemonData] = useState(null);
+
+    useEffect(() => {
+        const pokemonDataList = totalPokemonList.slice(minimumRange, AMOUNT_POKEMON_SHOW + minimumRange);
+        // console.log(pokemonDataList)
+        setPokemonData(pokemonDataList);
+    }, [minimumRange, totalPokemonList]);
+
+    // useEffect(() => {
+    //     setPokemonData(totalPokemonList);
+    // }, [totalPokemonList]);
+
     return (
-        loadingGet ? <div>Cargando ...</div>: (
+        false ? <div>Cargando ...</div>: (
             <>
                 <div className={styles.boxButtons}>
                     {
-                        quantityIncrease > 0 && (<button onClick={showPreviousSheet}>Anterior</button>)
+                        minimumRange > 0 && (<button onClick={showPreviousSheet}>Anterior</button>)
                     }
                     <button onClick={showNextSheet}>Siguiente</button>
                 </div>

@@ -10,7 +10,7 @@ export const PokemonCard = ({ namePokemon }) => {
 
     // responseGet salía como [] porque es su valor inicial hasta que la petición get a la PokeAPI me retorne otro valor (cuando retorna otro valor es cuando automáticametne deja de ser [] y ya es un ARRAY LLENO)
     // Creo que con el pokemonData.length === 0 me ahorro el hecho de estar usando el Operador "?" cuando use las propieades de un Objeto
-    if(!pokemonData || pokemonData.length === 0 ) return console.log("pokemonData es un falsy o es un Array vacío");
+    if(!pokemonData || pokemonData.length === 0 ) return;
     
     const imagePokemon = pokemonData?.sprites?.other["official-artwork"]?.front_default;
     const typesPokemon = pokemonData.types;

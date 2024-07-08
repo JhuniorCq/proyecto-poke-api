@@ -1,0 +1,31 @@
+.boxPokemonFinder {
+    /* padding: 0 60px; */
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.pokemonFinder {
+    display: flex;
+    gap: 15px;
+}
+
+.pokemonFinder input {
+    width: 300px;
+    height: 40px;
+    padding: 0 15px;
+    font-size: .9rem;
+}
+
+.pokemonFinder button {
+    width: 45px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
