@@ -10,24 +10,22 @@ export const Home = () => {
     
     const { totalPokemonData, loadingGet, errorGet } = useContext(TotalPokemonContext);
     
-    const [inputPokemon, setInputPokemon] = useState(null);
+    const [inputPokemon, setInputPokemon] = useState("");
 
     const [totalPokemonList, setTotalPokemonList] = useState(totalPokemonData);
 
     const handleInputPokemon = ({ target }) => {
-        if(!target.value) return;
-
-        console.log(target.value);
         setInputPokemon(target.value);
     };
 
     const searchPokemon = () => {
-        if(inputPokemon) {
-            const leakedPokemon = totalPokemonData?.filter(pokemonData => pokemonData.name.includes(inputPokemon));
-            setTotalPokemonList(leakedPokemon);
-        } else {
-            alert("El input está vacío");
+        if(inputPokemon === "") {
+            setTotalPokemonList(totalPokemonData);
+            return;
         }
+
+        const leakedPokemon = totalPokemonData?.filter(pokemonData => pokemonData.name.includes(inputPokemon));
+        setTotalPokemonList(leakedPokemon);
     };
 
     // useEffect(() => {
@@ -44,10 +42,6 @@ export const Home = () => {
         };
     }, [totalPokemonData]);
 
-    // useEffect(() => {
-    //     console.log(totalPokemonList, "totalPokemonList");
-    // }, [totalPokemonList]);
-
     return (
         <>
             <h1>POKÉDEX</h1>
@@ -55,10 +49,6 @@ export const Home = () => {
             {
                 totalPokemonList && <PokemonList totalPokemonList={totalPokemonList} />
             }
-            {
-                // totalPokemonList && console.log(totalPokemonList)
-            }
-            {/* <PokemonList /> */}
         </>
     );
 };
