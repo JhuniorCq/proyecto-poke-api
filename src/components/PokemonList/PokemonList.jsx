@@ -1,38 +1,42 @@
 import { PokemonCard } from "../PokemonCard/PokemonCard";
 import styles from "./PokemonList.module.css"
-import { useEffect, useState } from "react";
-import { AMOUNT_POKEMON_SHOW, URL_POKEMON } from "../../constants";
-import { useGet } from "../hooks/useGet";
+import { useEffect, useRef, useState } from "react";
+import { AMOUNT_POKEMON_SHOW } from "../../constants";
 
 export const PokemonList = ({ totalPokemonList }) => {
     
     const [minimumRange, setMinimunRange] = useState(0);
+    // Usaré useRef, porque me permite CREAR un valor que NO se RE-DEFINIRÁ en cada Renderizado, y que cuando cambie NO genere un RENDERIZADO
+    let remainingPokemonQuantity = useRef(totalPokemonList.length - AMOUNT_POKEMON_SHOW);
 
     const showNextSheet = () => {
+        if(remainingPokemonQuantity.current <= 0) return;
+        
+        // Con esto me aseguro de que si ya NO hay pokemons para mostrar -> ya NO se pasará a la siguiente página
+        remainingPokemonQuantity.current = remainingPokemonQuantity.current - AMOUNT_POKEMON_SHOW;
+        console.log(remainingPokemonQuantity)
         setMinimunRange(minimumRange + AMOUNT_POKEMON_SHOW);
     };
 
     const showPreviousSheet = () => {
-        if(minimumRange >= AMOUNT_POKEMON_SHOW) setMinimunRange(minimumRange - AMOUNT_POKEMON_SHOW);
+        remainingPokemonQuantity.current = remainingPokemonQuantity.current + AMOUNT_POKEMON_SHOW;
+        if(minimumRange < AMOUNT_POKEMON_SHOW) return;
+        setMinimunRange(minimumRange - AMOUNT_POKEMON_SHOW)
     }
 
-    // const { responseGet, loadingGet, errorGet } = useGet(`${URL_POKEMON}?limit=${AMOUNT_POKEMON_SHOW}&offset=${minimumRange}`);
-    // const pokemonData = responseGet.results;
-
-    // Para el buscador sería usar URL_POKEMON con el limit en 1025 y offset en 0, para que así me dé a todos los pokemon y ya ahí recién podré FILTRAR a los pokemon
-
-    // console.log(totalPokemonList, "totalPokemonList")
-    const [pokemonData, setPokemonData] = useState(null);
-
+    const [pokemonSlice, setPokemonSlice] = useState(null);
+    
     useEffect(() => {
-        const pokemonDataList = totalPokemonList.slice(minimumRange, AMOUNT_POKEMON_SHOW + minimumRange);
-        // console.log(pokemonDataList)
-        setPokemonData(pokemonDataList);
+        const newPokemonSlice = totalPokemonList.slice(minimumRange, AMOUNT_POKEMON_SHOW + minimumRange);
+        setPokemonSlice(newPokemonSlice);
     }, [minimumRange, totalPokemonList]);
 
-    // useEffect(() => {
-    //     setPokemonData(totalPokemonList);
-    // }, [totalPokemonList]);
+    // Esto es para cada vez que se tenga un nuevo FILTRADO de Pokemons
+    useEffect(() => {
+        setMinimunRange(0);
+        // Lo inicializo restándole 20 porque YA se están mostrando 20
+        remainingPokemonQuantity.current = totalPokemonList.length - AMOUNT_POKEMON_SHOW;
+    }, [totalPokemonList]);
 
     return (
         false ? <div>Cargando ...</div>: (
@@ -41,11 +45,16 @@ export const PokemonList = ({ totalPokemonList }) => {
                     {
                         minimumRange > 0 && (<button onClick={showPreviousSheet}>Anterior</button>)
                     }
-                    <button onClick={showNextSheet}>Siguiente</button>
+                    {
+                        console.log(remainingPokemonQuantity, "gwegwegweg")
+                    }
+                    {
+                        remainingPokemonQuantity.current > 0 && <button onClick={showNextSheet}>Siguiente</button>
+                    }
                 </div>
                 <div className={styles.boxPokemonlist}>
                     {
-                        pokemonData && pokemonData.map((pokemon, index) => {
+                        pokemonSlice && pokemonSlice.map((pokemon, index) => {
                             return (
                                 <PokemonCard 
                                 key={index}

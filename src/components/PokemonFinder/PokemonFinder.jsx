@@ -8,7 +8,7 @@ export const PokemonFinder = ({ handleInputPokemon, searchPokemon }) => {
             <div className={styles.pokemonFinder}>
                 <input onChange={handleInputPokemon} id="searchPokemon" name="searchPokemon" type="text" />
                 <button onClick={searchPokemon}>
-                    <FaSearch />
+                    <FaSearch className={styles.iconSearch} />
                 </button>
             </div>
         </div>
