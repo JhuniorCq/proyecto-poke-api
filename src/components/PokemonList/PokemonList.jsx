@@ -46,9 +46,6 @@ export const PokemonList = ({ totalPokemonList }) => {
                         minimumRange > 0 && (<button onClick={showPreviousSheet}>Anterior</button>)
                     }
                     {
-                        console.log(remainingPokemonQuantity, "gwegwegweg")
-                    }
-                    {
                         remainingPokemonQuantity.current > 0 && <button onClick={showNextSheet}>Siguiente</button>
                     }
                 </div>

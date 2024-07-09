@@ -3,6 +3,7 @@ import { URL_POKEMON } from "../../constants";
 import { useGet } from "../hooks/useGet";
 import { addZeros } from "./js";
 import styles from "./PokemonCard.module.css";
+import { useState } from "react";
 
 export const PokemonCard = ({ namePokemon }) => {
     
@@ -17,8 +18,9 @@ export const PokemonCard = ({ namePokemon }) => {
     const idPokemon = pokemonData?.id;
     const numberPokemon = addZeros(idPokemon.toString());
 
+
     return (
-        <Link className={styles.pokemonCard}>
+        <Link to={`/pokemon/${idPokemon}`} className={styles.pokemonCard}>
             {
                 loadingGet ? <div>Cargando ...</div>: (
                     <>
