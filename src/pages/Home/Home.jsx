@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { PokemonFinder } from "../../components/PokemonFinder/PokemonFinder";
 import { PokemonList } from "../../components/PokemonList/PokemonList";
 import { TotalPokemonContext } from "../../context/TotalPokemonContext/TotalPokemonContext";
+import { Outlet } from "react-router-dom";
 import styles from "./Home.module.css";
 
 export const Home = () => {
@@ -39,6 +40,7 @@ export const Home = () => {
             {
                 totalPokemonList && <PokemonList totalPokemonList={totalPokemonList} />
             }
+            <Outlet />
         </>
     );
 };
