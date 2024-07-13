@@ -5,12 +5,12 @@ export const PokemonFinder = ({ handleInputPokemon, searchPokemon }) => {
     return (
         <div className={styles.boxPokemonFinder}>
             <label htmlFor="searchPokemon">Nombre del Pokemón</label>
-            <div className={styles.pokemonFinder}>
+            <form className={styles.pokemonFinder} onSubmit={searchPokemon}>
                 <input onChange={handleInputPokemon} id="searchPokemon" name="searchPokemon" type="text" />
-                <button onClick={searchPokemon}>
+                <button>
                     <FaSearch className={styles.iconSearch} />
                 </button>
-            </div>
+            </form>
         </div>
     );
 };

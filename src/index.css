@@ -15,6 +15,10 @@ a {
     text-decoration: none;
 }
 
+ul {
+    list-style-type: none;
+}
+
 .steelColor {
     background-color: rgb(105, 122, 135);
 }

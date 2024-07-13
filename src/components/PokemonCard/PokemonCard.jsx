@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { URL_POKEMON } from "../../constants";
-import { useGet } from "../hooks/useGet";
+import { useGet } from "../../hooks/useGet";
 import { addZeros } from "./js";
 import styles from "./PokemonCard.module.css";
 import { useState } from "react";
+import { PokemonType } from "../PokemonType/PokemonType";
 
 export const PokemonCard = ({ namePokemon }) => {
     
@@ -18,9 +19,8 @@ export const PokemonCard = ({ namePokemon }) => {
     const idPokemon = pokemonData?.id;
     const numberPokemon = addZeros(idPokemon.toString());
 
-
     return (
-        <Link to={`/pokemon/${idPokemon}`} className={styles.pokemonCard}>
+        <Link to={`/pokemon/${idPokemon}`} className={styles.pokemonCard} state={{pokemonData}}>
             {
                 loadingGet ? <div>Cargando ...</div>: (
                     <>
@@ -34,9 +34,7 @@ export const PokemonCard = ({ namePokemon }) => {
                         <div className={styles.boxTypesPokemon}>
                             {
                                 typesPokemon && typesPokemon.map((typePokemon, index) => (
-                                    <div key={index} className={`${styles.typePokemon} ${typePokemon.type.name}Color`}>
-                                        {typePokemon.type.name}
-                                    </div>
+                                    <PokemonType key={index} className={`${typePokemon.type.name}Color`} typeName={typePokemon.type.name} />
                                 ))
                             }
                         </div>
