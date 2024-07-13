@@ -1,5 +1,5 @@
 import { URL_TYPES_POKEMON } from "../../../constants";
-import { useGet } from "../../hooks/useGet";
+import { useGet } from "../../../hooks/useGet";
 
 // Esto no se está usando aún
 export const getAllTypesPokemon = () => {

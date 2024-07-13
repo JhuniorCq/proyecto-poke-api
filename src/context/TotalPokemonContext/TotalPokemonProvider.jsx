@@ -1,5 +1,5 @@
-import { useGet } from "../../components/hooks/useGet";
 import { TOTAL_AMOUNT_POKEMON, URL_POKEMON } from "../../constants";
+import { useGet } from "../../hooks/useGet";
 import { TotalPokemonContext } from "./TotalPokemonContext";
 
 export const TotalPokemonProvider = ({ children }) => {
