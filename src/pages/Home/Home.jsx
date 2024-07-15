@@ -13,6 +13,12 @@ export const Home = () => {
 
     const [totalPokemonList, setTotalPokemonList] = useState(totalPokemonData);
 
+    const [minimumRange, setMinimunRange] = useState(0);
+
+    const updateMinimunRange = (value) => {
+        setMinimunRange(value);
+    };
+
     const handleInputPokemon = ({ target }) => {
         const pokemonEntered = target.value.toLowerCase();
         setInputPokemon(pokemonEntered);
@@ -21,7 +27,6 @@ export const Home = () => {
     const searchPokemon = (event) => {
         event.preventDefault();
         if(inputPokemon === "") {
-            console.log(inputPokemon)
             setTotalPokemonList(totalPokemonData);
             return;
         }
@@ -32,6 +37,7 @@ export const Home = () => {
 
     const showAllPokemon = () => {
         setTotalPokemonList(totalPokemonData);
+        setMinimunRange(0);
     };
 
     useEffect(() => {
@@ -42,13 +48,12 @@ export const Home = () => {
 
     return (
         <>
-            <h1 className={styles.title}>POKÉDEX</h1>
             <div className={styles.boxOptions}>
                 <PokemonFinder handleInputPokemon={handleInputPokemon} searchPokemon={searchPokemon} />
                 <button className={styles.buttonShowAllPokemon} onClick={showAllPokemon}>Mostrar todos los pokemon</button>
             </div>
             {
-                totalPokemonList && <PokemonList totalPokemonList={totalPokemonList} />
+                totalPokemonList && <PokemonList totalPokemonList={totalPokemonList} minimumRange={minimumRange} setMinimunRange={updateMinimunRange} />
             }
             <Outlet />
         </>

@@ -1,14 +1,10 @@
-import styles from "./App.module.css";
+import { Header } from "./components/Header/Header";
 import { MyRoutes } from "./routes/MyRoutes";
 
 function App() {
   return (
     <>
-      <header className={styles.header}>
-        <div>
-          <img src="" alt="Logo" />
-        </div>
-      </header>
+      <Header />
       <MyRoutes />
     </>
   );
