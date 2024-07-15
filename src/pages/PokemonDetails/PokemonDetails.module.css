@@ -10,9 +10,8 @@
 }
 
 .boxPokemonDetails {
-    /* background-color: white; */
     background-color: rgba(0, 0, 0, .6);
-    border-left: 1px solid rgb(22, 22, 72);
+    border-left: 1px solid black;
     position: fixed;
     top: 0;
     right: 0;
