@@ -24,9 +24,7 @@ ChartJS.register(
     Filler
 );
 
-
 export const StatsPokemon = ({ graphConfigurationStats, nameStats, valueStats }) => {
-    console.log(valueStats, "Estoy en StatsPokemon.jsx")
     const { graphicData, options } = graphConfigurationStats;
 
     const data = useMemo(() => {

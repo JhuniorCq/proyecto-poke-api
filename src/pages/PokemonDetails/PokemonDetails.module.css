@@ -5,11 +5,12 @@
     width: 100vw;
     height: 100vh;
     background-color: rgba(250, 250, 250, .06);
-    backdrop-filter: blur(.2rem);
+    backdrop-filter: blur(.25rem);
 }
 
 .boxPokemonDetails {
-    background-color: pink;
+    background-color: white;
+    border-left: 1px solid rgb(22, 22, 72);
     position: fixed;
     top: 0;
     right: 0;
@@ -30,7 +31,6 @@
 }
 
 .boxRowOne {
-    border: 1px solid red;
     width: 100%;
     display: flex;
     align-items: center;
@@ -60,21 +60,28 @@
 }
 
 .buttonCloseDetails {
-    font-size: 1.5rem;
+    font-size: 3rem;
     cursor: pointer;
     background-color: transparent;
     border: none;
+    text-align: center;
+    align-content: center;
+    color: rgb(175, 27, 27);
+    transition: color .3s ease-in-out;
+}
+
+.buttonCloseDetails:hover {
+    color: rgb(236, 18, 18);
 }
 
 .boxImagePokemon {
-    border: 1px solid orange;
     width: 100%;
     text-align: center;
 }
 
 .boxImagePokemon img {
     width: 50%;
-    border: 1px solid brown;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, .4));
 }
 
 .boxTypesPokemon {
@@ -83,3 +90,4 @@
     gap: 15px;
     justify-content: center;
 }
+

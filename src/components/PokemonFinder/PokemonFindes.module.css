@@ -1,10 +1,8 @@
 .boxPokemonFinder {
-    /* border: 1px solid red; */
+    /* width: 100%; */
     display: flex;
     flex-direction: column;
     gap: 8px;
-    /* width: 82%; */
-    /* margin: 30px auto; */
 }
 
 .pokemonFinder {
@@ -17,6 +15,15 @@
     height: 40px;
     padding: 0 15px;
     font-size: .9rem;
+}
+
+@media (max-width: 451px) {
+    .pokemonFinder input {
+        width: 87%;
+        height: 40px;
+        padding: 0 15px;
+        font-size: .9rem;
+    }
 }
 
 .pokemonFinder button {
