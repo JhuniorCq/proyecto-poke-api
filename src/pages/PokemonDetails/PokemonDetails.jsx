@@ -1,10 +1,10 @@
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import styles from "./PokemonDetails.module.css";
 import { useEffect, useRef, useState } from "react";
 import { addZeros } from "../../components/PokemonCard/js";
 import { StatsPokemon } from "../../components/StatsPokemon/StatsPokemon";
 import { PokemonType } from "../../components/PokemonType/PokemonType";
 import { AiFillCloseSquare } from "react-icons/ai";
+import styles from "./PokemonDetails.module.css";
 
 export const PokemonDetails = () => {
   const { id } = useParams();
@@ -23,7 +23,6 @@ export const PokemonDetails = () => {
   const valueStats = pokemonData.stats.map((stat) => stat.base_stat);
   const graphConfigurationStats = {
     graphicData: {
-      label: "Stats",
       data: valueStats,
       fill: true,
       backgroundColor: "rgba(224, 15, 15, 0.4)",
@@ -32,11 +31,14 @@ export const PokemonDetails = () => {
       responsive: true,
       scales: {
         x: {
-          ticks: { color: "rgb(0, 0, 0)" },
+          ticks: { color: "rgba(255, 255, 255, .8)" },
+          grid: { color: "rgba(255, 255, 255, .2)" }
         },
         y: {
           min: 0,
           max: 255,
+          ticks: { color: "rgba(255, 255, 255, .8)" },
+          grid: { color: "rgba(255, 255, 255, .2)" }
         },
       },
       plugins: {
