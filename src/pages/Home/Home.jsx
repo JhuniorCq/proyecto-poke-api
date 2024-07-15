@@ -62,7 +62,7 @@ export const Home = () => {
           className={styles.buttonShowAllPokemon}
           onClick={showAllPokemon}
         >
-          Mostrar todos los pokemon
+          Volver a la lista inicial
         </button>
       </div>
       {totalPokemonList && (
