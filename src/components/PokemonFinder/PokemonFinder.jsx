@@ -1,5 +1,5 @@
-import styles from "./PokemonFindes.module.css";
 import { FaSearch } from "react-icons/fa";
+import styles from "./PokemonFinder.module.css";
 
 export const PokemonFinder = ({ handleInputPokemon, searchPokemon }) => {
     return (

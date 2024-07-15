@@ -2,9 +2,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(193, 193, 193);
+    /* background-color: rgb(193, 193, 193); */
+    background-color: rgba(0, 0, 0, .2);
     height: 70px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, .3);
+    box-shadow: 0 0 8px rgba(0, 0, 0, .5);
 }
 
 .logo {
