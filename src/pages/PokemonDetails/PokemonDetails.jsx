@@ -20,6 +20,7 @@ export const PokemonDetails = () => {
   const nameStats = pokemonData.stats.map((stat) => {
     return stat.stat.name[0].toUpperCase() + stat.stat.name.slice(1);
   });
+  
   const valueStats = pokemonData.stats.map((stat) => stat.base_stat);
   const graphConfigurationStats = {
     graphicData: {
